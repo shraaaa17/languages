@@ -1,0 +1,70 @@
+<html>
+<head>
+<title> languages app by shravani </title>
+<style>
+* {font-size:50px;}
+body {background color:light yellow;}
+
+</style>
+<script>
+function show()
+{
+event.preventDefault();
+let name=document.getElemantByld("name");
+let java=document.getElemantByld("java");
+let js=document.getElemantByld("js");
+let python=document.getElemantByld("python");
+let ans=document.getElemantByld("ans");
+
+if(name.value=="")
+{
+    alert("name is empty");
+    ans.innerHTML="";
+    name.focus();
+    return;
+}
+else if(name.value.trim()=="")
+{
+alert("name cannot be spaces");
+ans.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+else if (!name.value.match(/^[A-Za-z]+$/))
+{
+alert("name should contain only alpha");
+ans.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+
+let languages="";
+if(java.checked)   languages=languages+"Java";
+if(js.checked)     languages=languages+"JavaScript";
+if(python.checked) languages=languages+"Python";
+
+let msg="name="+name.value +"languages="+languages;
+ans.innerHTML=msg;
+}
+</script>
+</head>
+
+<body>
+<center>
+<h1>Languages You Know</h1>
+<form onsubmit="show()"> 
+     <input type="text"placeholder="enter ur name"id="name"/>
+<br><br>
+<input type="checkbox"id="java"/>Java
+<input type="checkbox"id="js"/>JavaScript
+<input type="checkbox"id="python"/>Python
+<br><br>
+<input type="submit"/>
+</form>
+<h1 id="ans"/> 
+</center>
+</body>
+</html>
+
